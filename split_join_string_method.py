@@ -1,0 +1,6 @@
+user_name= input("enter your first name and last name:")
+username_splited = user_name.split()
+username_joinded = "--".join(username_splited)
+print(user_name)
+print(username_splited)
+print(username_joinded)
