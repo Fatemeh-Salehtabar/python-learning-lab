@@ -40,4 +40,9 @@ if password != password.upper() and password != password.lower():
 else:
     erorr_list.append("Password must contain both uppercase or lowercase letters.")
 
+if password.swapcase() != user_name:
+    score+=1
+else:
+    erorr_list.append("pasword is swapcase version of username")
+
  
