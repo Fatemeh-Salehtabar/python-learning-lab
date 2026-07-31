@@ -28,4 +28,8 @@ if contain_alpha(password) and contain_special_charecter(password):
     score+=1
 else:
     erorr_list.append("passwod dosent have english char and (@,!, $) ")
+if password != user_name:
+    score+=1
+else:
+    erorr_list.append("password simillar to the username")
  
