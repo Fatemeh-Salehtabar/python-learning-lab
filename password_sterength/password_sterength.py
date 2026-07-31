@@ -14,7 +14,16 @@ def contain_special_charecter(password: str):
     for char in password:
         if char == "!" or char == "@" or char == "$":
             return True
-    return False            
+    return False   
+
+def  is_same_replace_charecters(pasworde:str, username: str):
+    forbidden={"a": "@", "i":"!", "s": "$", "o":"0"}
+    for key, val in forbidden.items():
+        username = username.replace(key, val)
+        
+    return username == password
+    
+    
 
 def contain_common_password(password: str):
     forbidden= ["123456", "12345678", "12345", "111111", "123456789", "quwerty", "asdfgh", "zxcvbnm", "admin", "password","p@s$w0rd"]
@@ -51,22 +60,29 @@ if password.swapcase() != user_name:
 else:
     erorr_list.append("pasword is swapcase version of username")
 
+if not is_same_replace_charecters(password,user_name):
+    score+=1
+else:
+    erorr_list.append("password contain symbols replacing letters")
+    
+
 if not contain_common_password(password):
     score+=1
 else:
     erorr_list.append("password is contain common password")
     
-    print(f"Password Sterength: {score}/{PASWORD_STERENGTH}")
+print(f"Password Sterength: {score}/{PASWORD_STERENGTH}")
     
-    if score>=5 :
-        print("Level: Strong")
-    elif 3<=score<5:
-        print("Level: Normal")
-    else:
-        print("Level: weak")
+if score>=5 :
+    print("Level: Strong")
+elif 3<=score<5:
+    print("Level: Normal")
+else:
+    print("Level: weak")
     
-    print("Faild Checks")
-    print(erorr_list)
+print("Faild Checks:")
+for i, err in enumerate(erorr_list):
+    print(f"{i}- {err}")
         
     
 
