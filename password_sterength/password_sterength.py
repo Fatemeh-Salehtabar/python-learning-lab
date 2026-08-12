@@ -1,5 +1,25 @@
-user_name :str =input("Enter username: ")
-password :str =input("Enter password: ")
+is_allowed = False
+try_count = 3
+
+while not is_allowed and try_count > 0:
+    user_name :str =input("Enter username: ")
+    password :str =input("Enter password: ")
+    if not user_name :
+        print("please enter username")
+        try_count -=1
+    elif not password:
+        print("please enter password")
+        try_count -=1
+    else:
+        is_allowed = True
+    
+    print("---------------------")
+
+
+if try_count == 0:
+    print("you have to try after 5 min")
+    exit(0)
+    
 PASWORD_STERENGTH :int= 7
 score:int= 0
 erorr_list = []
@@ -82,7 +102,7 @@ else:
     
 print("Faild Checks:")
 for i, err in enumerate(erorr_list):
-    print(f"{i}- {err}")
+    print(f"{i+1}- {err}")
         
     
 
